@@ -15,6 +15,10 @@
             <template v-else-if="slice.slice_type === 'image_with_caption'">
                 <image-caption-slice :slice="slice"></image-caption-slice>
             </template>
+            <!-- Embed slice template -->
+            <template v-else-if="slice.slice_type === 'embed'">
+                <embed-slice :slice="slice"></embed-slice>
+            </template>
         </section>
     </section>
 </template>
@@ -24,6 +28,7 @@
 const QuoteSlice = () => import("../components/slices/QuoteSlice.vue");
 const TextSlice = () => import("../components/slices/TextSlice.vue");
 const ImageCaptionSlice = () => import("../components/slices/ImageCaptionSlice.vue");
+const EmbedSlice = () => import("../components/slices/EmbedSlice.vue");
 
 export default {
   props: ['slices'],
@@ -31,7 +36,8 @@ export default {
   components: {
     QuoteSlice,
     TextSlice,
-    ImageCaptionSlice
+    ImageCaptionSlice,
+    EmbedSlice
   },
 }
 </script>
